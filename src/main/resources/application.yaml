@@ -1,0 +1,15 @@
+ktor:
+  application:
+    modules:
+      - ApplicationKt.module
+  deployment:
+    host: 0.0.0.0
+    port: 8085
+db:
+  driver: com.mysql.cj.jdbc.Driver
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  schema: ${DB_SCHEMA}
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+  maxPoolSize: 10

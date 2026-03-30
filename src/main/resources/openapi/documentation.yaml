@@ -1,0 +1,65 @@
+openapi: "3.0.3"
+info:
+  title: "Application API"
+  description: "Application API"
+  version: "1.0.0"
+servers:
+  - url: /
+paths:
+  /users/{userId}:
+    get:
+      summary: summary
+      description: description
+      operationId: operationId
+      responses:
+        '200':
+          description: 성공 응답
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                OK :
+                  summary: 조회 성공
+                  value:
+                    status: OK
+                    message: message
+                    data:
+        '400':
+            description: Bad Request
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+        '500':
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+
+components:
+    schemas:
+      ApiResponse:
+        type: object
+        required:
+          - status
+          - message
+        properties:
+          status:
+            type: string
+          message:
+            type: string
+          data:
+            type: object
+      ErrorResponse:
+        type: object
+        required:
+          - status
+          - message
+        properties:
+          status:
+            type: string
+          message:
+            type: string
+
